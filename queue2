@@ -1,0 +1,52 @@
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class Queue():
+    def __init__(self, value):
+        new_node = Node(value)
+        self.front = new_node
+        self.back = new_node
+        self.length = 1
+
+    def print_queue(self):
+        temp = self.front
+        while temp is not None:
+            print(temp.value)
+            temp = temp.next
+
+    def enqueue(self, value):
+        new_node =  Node(value)
+        if self.front is None:
+            self.front = new_node
+            self.back = new_node
+
+        else:
+            self.back.next = new_node  
+            self.back = new_node
+        self.length += 1
+            
+    def dequeue(self):
+        if self.length == 0:
+            return None    
+        temp = self.front
+        if self.length == 1:
+            self.front = None
+            self.last = None
+        else:
+            self.front = self.front.next
+            temp.next = None
+        self.length -= 1
+        return temp.value
+            
+        
+            
+
+my_queue = Queue(4)
+my_queue.enqueue(2)
+
+my_queue.print_queue()
+
+print(my_queue.dequeue())
