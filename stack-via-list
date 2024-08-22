@@ -1,0 +1,34 @@
+
+stackList = []
+
+def pushNum():
+    num = int(input("Enter a number to append."))
+    stackList.append(num)
+
+def popNum():
+    if len(stackList) == 0:
+        print("Stack Underflow.")
+
+    else:
+        print(f"{stackList.pop()} was popped.")
+
+choice = -1
+while choice != 3:
+    print("Perform an operation on the stack:")
+    print("\n1.Push the element\n2.Pop the element\n3.End")
+    choice = int(input("\n\nEnter the choice: "))
+
+    if choice == 1:
+        pushNum()
+    elif choice == 2:
+        popNum()
+    elif choice == 3:
+        print("exiting")
+    else:
+        print("Invalid choice!")
+
+
+
+        
+        
+    
